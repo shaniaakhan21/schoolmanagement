@@ -1,0 +1,28 @@
+{% extends "user/base.html"%}
+{% load crispy_forms_tags %}
+<!-- extended a base template to home template with a code block of extend and base template route -->
+
+{% block content %}
+<!------ Include the above in your HEAD tag ---------->
+
+
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <!-- Login Form -->
+    <div class="border shadow-lg p-3 mb-5 bg-white rounded ">
+    <form  method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4 sm-4 " style="font-size:18px;"><strong > Join Your Friends and Teacher </strong> </legend>
+          {{ form|crispy }}
+      </fieldset>
+
+      <div class="form-group">
+         <button class="btn btn-primary" type="submit" name="button" class="btn btn-primary" style="font-size:10px;"> Submit</button>
+      </div>
+    </form>
+    <small class=" pl-5 pr-5 "> Aleady have an Account ?</small><a href="{% url 'login' %}"><button class="btn btn-primary" type="submit" name="button" class="btn btn-primary" style="font-size:10px;"> Login Now </button></a>
+
+  </div>
+{% endblock %}
