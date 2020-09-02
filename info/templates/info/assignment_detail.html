@@ -1,0 +1,41 @@
+{% extends 'info/main.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'assignment-list' %}"><button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"  style="font-size:15px;  margin:20px; margin-left:60px; ">Back</button></a>
+
+<section class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+          <!--<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog">-->
+          <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">{{assignment.subject}}</h2>
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{assignment.title}}</h1>
+            <span class="text-gray-600 inline-flex items-center leading-none text-sm">Class - {{assignment.standard}}</span>
+            <span class="text-gray-600 inline-flex items-center leading-none text-sm">{{assignment.section}} |</span>
+            <span class="text-gray-600 inline-flex items-center leading-none text-sm">Subject Branch - {{assignment.branch}}</span>
+            <br><hr>
+            <span class="leading-relaxed mb-3" style= 'color: blue ; font-style: italic;'><a href="/static/images/{{assignment.Fileupload}}" >{{assignment.Filename}} |</a></span>
+            <span class=" " style= 'color: blue ; font-style: italic;'><a href="/static/images/{{assignment.Fileupload}}" download>Download</a></span>
+            <p class="leading-relaxed mb-3" >{{assignment.textcontent}}</p>
+            <!--<span class="leading-relaxed mb-3" style= 'color: blue ; font-style: italic;'><a href="#"> View </a></span>-->
+
+
+            <div class="flex items-center flex-wrap ">
+              <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">{{assignment.author}}</a>
+              <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
+                {{assignment.published|date}}
+              </span>
+              <span class="text-gray-600 inline-flex items-center leading-none text-sm">
+              {{assignment.published|time}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
